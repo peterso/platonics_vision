@@ -25,7 +25,7 @@ class Localizer(object):
 
     def set_depth_template(self, depth_template_filename) -> None:
         self._depth_template = np.load(depth_template_filename)
-        cv2.imwrite('/home/mspahn/temp/depth_template.png', self._depth_template)
+        cv2.imwrite('/home/rmilnuc1/temp/depth_template.png', self._depth_template)
 
     def set_template(self, template) -> None:
         assert isinstance(template, str)
@@ -113,7 +113,7 @@ class Localizer(object):
                 flags=2,
             )
             self._annoted_image = cv2.drawMatches(self._full_template, kp1, self._img, kp2, good, None, **draw_params)
-            cv2.imwrite('/home/mspahn/temp/annoted_image.png', self._annoted_image)
+            cv2.imwrite('/home/rmilnuc1/temp/annoted_image.png', self._annoted_image)
 
 
             if self._logger.level == logging.DEBUG:
@@ -177,7 +177,7 @@ class Localizer(object):
                 xyz_src[i, j, 0] = (i - self.cx_cy_array[0])/self._fx * xyz_src[i, j, 2]
                 xyz_src[i, j, 1] = (j - self.cx_cy_array[1])/self._fy * xyz_src[i, j, 2]
 
-        np.save('/home/mspahn/temp/xyz_src.npy', xyz_src)
+        np.save('/home/rmilnuc1/temp/xyz_src.npy', xyz_src)
 
     def get_depths(self):
 
@@ -231,10 +231,10 @@ class Localizer(object):
 
 
         else:
-            np.save('/home/mspahn/temp/xyz1_src_panda_link.npy', xyz1_src_panda_link)
-            np.save('/home/mspahn/temp/xyz1_dst_panda_link.npy', xyz1_dst_panda_link)
+            np.save('/home/rmilnuc1/temp/xyz1_src_panda_link.npy', xyz1_src_panda_link)
+            np.save('/home/rmilnuc1/temp/xyz1_dst_panda_link.npy', xyz1_dst_panda_link)
             T0, mask = compute_transform_3d(xyz1_src_panda_link, xyz1_dst_panda_link)
-            np.save('/home/mspahn/temp/mask.npy', mask)
+            np.save('/home/rmilnuc1/temp/mask.npy', mask)
 
         return T0
 

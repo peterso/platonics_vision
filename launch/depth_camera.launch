@@ -4,19 +4,28 @@
   <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
     <arg name="enable_pointcloud" value="true"/>
     <arg name="align_depth" value="true"/>
-    <!--
-    <arg name="depth_width" value="1280"/>
+    
+    <!-- <arg name="depth_width" value="1280"/>
+    <arg name="depth_height" value="720"/>
+    <arg name="color_width" value="1280"/>
+    <arg name="color_height" value="720"/>
+    <arg name="depth_fps" value="6"/>
+    <arg name="color_fps" value="6"/> -->
+    
+    <!-- <arg name="depth_width" value="1280"/>
     <arg name="depth_height" value="720"/>
     <arg name="color_width" value="1280"/>
     <arg name="color_height" value="720"/>
     <arg name="depth_fps" value="30"/>
-    <arg name="color_fps" value="30"/-->
+    <arg name="color_fps" value="30"/> -->
+
     <!--arg name="clip_distance" value="0.32"/-->
     <!--arg name="enable_sync" value="true"/-->
     <arg name="publish_tf" value="true"/>
     <arg name="enable_infra1" value="true"/>
     <arg name="enable_infra2" value="true"/>
-    <arg name="json_file_path" value="${find platonics_vision}/config/settings_high_density.json"/>
+    <!-- <arg name="json_file_path" value="${find platonics_vision}/config/settings_high_density.json"/> -->
+    <arg name="json_file_path" value="/home/rmilnuc1/isolation/catkin_ws/src/platonics_vision/config/settings_high_density.json"/>
   </include>
   <rosparam command="load" file="$(find platonics_vision)/config/camera_config.yaml" />
 
